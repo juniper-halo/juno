@@ -1,0 +1,9 @@
+- title: "MoE++: Accelerating Mixture-of-Experts Methods with Zero-Computation Experts"
+  url: "https://arxiv.org/pdf/2410.07348"
+  authors: "Peng Jin, Bo Zhu, Li Yuan, Shuicheng Yan"
+  date: 2026-02-02
+
+- title: "LongCat-Flash Technical Report"
+  url: "https://arxiv.org/abs/2509.01322"
+  authors: "Meituan LongCat Team et al."
+  date: 2026-01-28
