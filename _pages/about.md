@@ -2,7 +2,10 @@
 layout: about
 title: about
 permalink: /
-subtitle: "<em>Pronounced as Maa-dh-av Tri-paa-thee</em>"
+subtitle: "Computer Science @ UIUC · ML/CV researcher in training"
+hero_label: creator & engineer
+hero_title: Madhav Tripathi (Juno/ジュノー)
+hero_summary: "I build practical ML systems, study multimodal representation learning, and share what I learn through projects and writing."
 
 profile:
   align: right
@@ -29,6 +32,23 @@ currently_reading:
   limit: 5
 ---
 
-I am a second-year Computer Science undergraduate at the University of Illinois Urbana-Champaign, with a strong interest in research on foundational machine learning models, particularly in computer vision and multimodal representation learning. I am actively seeking research opportunities and mentorship in these areas. I am a recipient of the Edmund James Scholar Award for academic excellence.
+## About me
 
-Outside of research, I am a self-taught pianist and enjoy reading light novels and manga, with Your Lie in April as a longtime favorite.
+I am a second-year Computer Science undergraduate at the University of Illinois Urbana-Champaign. My current focus is foundational machine learning models, especially computer vision and multimodal representation learning. I am actively seeking research opportunities where I can contribute to open-ended, high-impact work.
+
+I enjoy balancing research with creative hobbies. Outside coding and papers, I am a self-taught pianist and a longtime fan of story-rich anime and manga.
+
+<div class="about-highlights">
+  <div class="highlight-card">
+    <h3>Research Focus</h3>
+    <p>Computer vision, multimodal learning, and robust representation learning.</p>
+  </div>
+  <div class="highlight-card">
+    <h3>Current Goal</h3>
+    <p>Work with a research group and publish practical, reproducible projects.</p>
+  </div>
+  <div class="highlight-card">
+    <h3>Background</h3>
+    <p>Edmund James Scholar Award recipient, builder-first mindset, curiosity-driven.</p>
+  </div>
+</div>

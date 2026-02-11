@@ -1,0 +1,110 @@
+/*******************************************************************************
+ * About landing page refresh
+ ******************************************************************************/
+
+.about-landing {
+  .about-hero {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2rem;
+    align-items: center;
+    background: linear-gradient(125deg, color-mix(in srgb, var(--global-theme-color) 8%, var(--global-bg-color)), var(--global-bg-color));
+    border: 1px solid color-mix(in srgb, var(--global-divider-color) 70%, transparent);
+    border-radius: 1.25rem;
+    padding: 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-hero__eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--global-theme-color);
+    margin-bottom: 0.9rem;
+  }
+
+  .about-hero__title {
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.1;
+    margin-bottom: 0.9rem;
+  }
+
+  .about-hero__subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.7rem;
+  }
+
+  .about-hero__summary {
+    color: var(--global-text-color-light);
+    max-width: 50ch;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .about-hero__image {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
+  }
+
+  .about-intro {
+    border: 1px solid color-mix(in srgb, var(--global-divider-color) 70%, transparent);
+    border-radius: 1.15rem;
+    padding: 1.4rem 1.5rem;
+    background-color: var(--global-card-bg-color);
+    margin-bottom: 1.75rem;
+
+    h2 {
+      margin-top: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-top: 1rem;
+
+    .highlight-card {
+      border: 1px solid color-mix(in srgb, var(--global-divider-color) 75%, transparent);
+      border-radius: 0.9rem;
+      padding: 0.9rem;
+      background: color-mix(in srgb, var(--global-theme-color) 4%, var(--global-card-bg-color));
+
+      h3 {
+        font-size: 1rem;
+        margin-bottom: 0.35rem;
+      }
+
+      p {
+        margin-bottom: 0;
+        color: var(--global-text-color-light);
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .about-landing {
+    .about-hero {
+      grid-template-columns: 1fr;
+      padding: 1.4rem;
+    }
+
+    .about-highlights {
+      grid-template-columns: 1fr;
+    }
+  }
+}
