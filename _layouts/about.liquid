@@ -1,44 +1,61 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
-
+<div class="post about-landing">
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
+    <section class="about-hero reveal-on-scroll">
+      <div class="about-hero__content">
+        <p class="about-hero__eyebrow">{{ page.hero_label | default: 'ABOUT ME' }}</p>
+        <h1 class="about-hero__title">
+          {% if page.hero_title %}
+            {{ page.hero_title }}
+          {% elsif site.title == 'blank' %}
+            <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+            {{ site.last_name }}
+          {% else %}
+            {{ site.title }}
+          {% endif %}
+        </h1>
+        {% if page.subtitle %}
+          <p class="about-hero__subtitle">{{ page.subtitle }}</p>
+        {% endif %}
+        {% if page.hero_summary %}
+          <p class="about-hero__summary">{{ page.hero_summary }}</p>
+        {% endif %}
+        <div class="about-hero__actions">
+          <a class="btn btn-primary" href="{{ '/projects/' | relative_url }}">View Projects</a>
+          <a class="btn btn-outline-primary" href="{{ '/cv/' | relative_url }}">See CV</a>
+        </div>
+      </div>
+
+      {% if page.profile and page.profile.image %}
+        <div class="about-hero__media">
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle about-hero__image' %}
           {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded about-hero__image' %}
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
+          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.34}}px, (min-width: 576px) 36vw, 95vw{% endcapture %}
           {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+            include figure.liquid
+            loading="eager"
+            path=profile_image_path
+            class=profile_image_class
+            sizes=sizes
+            alt=page.profile.image
             cache_bust=true
           %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
+          {% if page.profile.more_info %}
+            <div class="more-info">{{ page.profile.more_info }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </section>
 
-    <div class="clearfix">{{ content }}</div>
+    <section class="about-intro reveal-on-scroll">
+      <div class="clearfix">{{ content }}</div>
+    </section>
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}

@@ -1,0 +1,191 @@
+/*******************************************************************************
+ * Modern micro-interactions
+ ******************************************************************************/
+
+@use "variables" as v;
+
+:root {
+  --interaction-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --interaction-duration: 220ms;
+  --interaction-card-shadow: 0 12px 30px color-mix(in srgb, var(--global-theme-color) 20%, transparent);
+  --interaction-neon-width: 1px;
+  --interaction-neon-orbit-duration: 1800ms;
+}
+
+@mixin neon-hover-ring {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 160ms var(--interaction-ease);
+  }
+
+  &::before {
+    background:
+      linear-gradient(var(--global-neon-core), var(--global-neon-core)) border-box,
+      linear-gradient(transparent, transparent) padding-box;
+    border: var(--interaction-neon-width) solid transparent;
+    box-shadow:
+      0 0 0.25rem color-mix(in srgb, var(--global-neon-core) 55%, transparent),
+      0 0 0.6rem color-mix(in srgb, var(--global-neon-glow) 45%, transparent);
+  }
+
+  &::after {
+    padding: var(--interaction-neon-width);
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 260deg,
+      color-mix(in srgb, var(--global-neon-core) 95%, white) 300deg,
+      color-mix(in srgb, var(--global-neon-core) 60%, transparent) 335deg,
+      transparent 360deg
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    filter: drop-shadow(0 0 0.35rem color-mix(in srgb, var(--global-neon-glow) 70%, transparent));
+  }
+}
+
+.navbar .nav-link,
+.navbar .dropdown-item,
+#light-toggle {
+  transition:
+    color var(--interaction-duration) var(--interaction-ease),
+    transform var(--interaction-duration) var(--interaction-ease);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible,
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus-visible,
+#light-toggle:hover,
+#light-toggle:focus-visible {
+  transform: translateY(-1px);
+}
+
+.card.hoverable {
+  @include neon-hover-ring;
+  border-radius: 0.9rem;
+  transition:
+    transform var(--interaction-duration) var(--interaction-ease),
+    box-shadow var(--interaction-duration) var(--interaction-ease),
+    border-color var(--interaction-duration) var(--interaction-ease);
+  border: 1px solid color-mix(in srgb, var(--global-divider-color) 75%, transparent);
+  will-change: transform;
+}
+
+.card.hoverable .card-img-top,
+.card.hoverable .card-img {
+  transition:
+    transform 320ms var(--interaction-ease),
+    filter 320ms var(--interaction-ease);
+}
+
+.card.hoverable:hover,
+.card.hoverable:focus-within {
+  transform: translateY(-7px);
+  box-shadow: var(--interaction-card-shadow);
+  border-color: color-mix(in srgb, var(--global-theme-color) 40%, var(--global-divider-color));
+}
+
+.card.hoverable:hover::before,
+.card.hoverable:focus-within::before,
+.about-landing .highlight-card:hover::before,
+.about-landing .highlight-card:focus-within::before {
+  opacity: 1;
+}
+
+.card.hoverable:hover::after,
+.card.hoverable:focus-within::after,
+.about-landing .highlight-card:hover::after,
+.about-landing .highlight-card:focus-within::after {
+  opacity: 1;
+  animation: neon-edge-orbit var(--interaction-neon-orbit-duration) linear infinite;
+}
+
+.about-landing .highlight-card {
+  @include neon-hover-ring;
+}
+
+.card.hoverable:hover .card-img-top,
+.card.hoverable:hover .card-img,
+.card.hoverable:focus-within .card-img-top,
+.card.hoverable:focus-within .card-img {
+  transform: scale(1.03);
+  filter: saturate(1.08);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 450ms var(--interaction-ease),
+    transform 450ms var(--interaction-ease);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body[data-scrolled="true"] .navbar {
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes neon-edge-orbit {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (hover: none) {
+  .card.hoverable::before,
+  .card.hoverable::after,
+  .about-landing .highlight-card::before,
+  .about-landing .highlight-card::after {
+    opacity: 0 !important;
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar .nav-link,
+  .navbar .dropdown-item,
+  #light-toggle,
+  .card.hoverable,
+  .card.hoverable .card-img-top,
+  .card.hoverable .card-img,
+  .reveal-on-scroll,
+  .card.hoverable::after,
+  .about-landing .highlight-card::after {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .card.hoverable:hover::after,
+  .card.hoverable:focus-within::after,
+  .about-landing .highlight-card:hover::after,
+  .about-landing .highlight-card:focus-within::after {
+    opacity: 0;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+  }
+}
