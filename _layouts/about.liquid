@@ -2,93 +2,140 @@
 layout: default
 ---
 <div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
+  <header class="post-header hero-header">
+    <div class="hero-content">
+      {% if page.profile %}
+        <div class="hero-profile">
+          {% if page.profile.image %}
+            {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+            {% if page.profile.image_circular %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% else %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+            {% endif %}
+            {% capture sizes %}(min-width: {{ site.max_width }}) 250px, (min-width: 576px) 250px, 50vw{% endcapture %}
+            {%
+              include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+              cache_bust=true
+            %}
+          {% endif %}
+          {% if page.profile.more_info %}
+            <div class="more-info">{{ page.profile.more_info }}</div>
+          {% endif %}
+        </div>
       {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
+
+      <h1 class="post-title">
+        Hi, I'm <span class="font-weight-bold">{{ site.first_name }}</span>.
+      </h1>
+      <p class="desc">
+        Welcome to my portfolio. I'm a computer science student exploring foundational ML, vision, and multimodal systems.
+      </p>
+    </div>
   </header>
 
-  <article>
+  <nav class="page-nav">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#publications">Publications</a>
+  </nav>
+
+  <article class="single-page">
     <a class="anchor" id="about"></a>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
+
+    <section id="about" class="page-section" aria-labelledby="about-heading" style="animation-delay: 0.1s;">
+      <h2 id="about-heading" class="section-title anchor-target" aria-label="About">about me</h2>
+      <div class="clearfix" style="font-size: 1.15rem; line-height: 1.8;">{{ content }}</div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="page-section" aria-labelledby="experience-heading" style="animation-delay: 0.15s;">
+      <h2 id="experience-heading" class="section-title anchor-target" aria-label="Experience">experience</h2>
+      <div class="experience-timeline mt-3">
+        <div class="experience-item">
+          <div class="experience-meta">
+            <span class="experience-role">Undergraduate CS @ UIUC</span>
+            <span class="experience-dates">2023 – present</span>
+          </div>
+          <div class="experience-body">
+            <p>Coursework and self‑driven projects in machine learning, computer vision, and systems, with a focus on building strong fundamentals.</p>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-meta">
+            <span class="experience-role">Research‑oriented ML work</span>
+            <span class="experience-dates">recent</span>
+          </div>
+          <div class="experience-body">
+            <p>Exploring foundational models for vision and multimodal tasks, experimenting with data‑efficient finetuning and robustness to distribution shift.</p>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-meta">
+            <span class="experience-role">Technical + community experience</span>
+            <span class="experience-dates">ongoing</span>
+          </div>
+          <div class="experience-body">
+            <p>Hands‑on engineering with modern ML tooling and infrastructure, plus mentoring peers and organizing informal study groups around ML and math.</p>
+          </div>
+        </div>
       </div>
-    {% endif %}
-
-    <nav class="page-nav">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-    </nav>
-
-    <div class="clearfix">{{ content }}</div>
+    </section>
 
     <!-- Single-page sections -->
 
-    <hr>
-    <h2 id="projects">projects</h2>
-    <div class="projects mt-3">
-      {% assign sorted_projects = site.projects | sort: "importance" %}
-      <div class="row row-cols-1 row-cols-md-3">
-        {% for project in sorted_projects %}
-          {% include projects.liquid %}
-        {% endfor %}
+    <section id="projects" class="page-section" aria-labelledby="projects-heading" style="animation-delay: 0.2s;">
+      <h2 id="projects-heading" class="section-title anchor-target" aria-label="Projects">projects</h2>
+      <div class="projects mt-3">
+        {% assign sorted_projects = site.projects | sort: "importance" %}
+        <div class="row row-cols-1 row-cols-md-3">
+          {% for project in sorted_projects %}
+            {% include projects.liquid %}
+          {% endfor %}
+        </div>
       </div>
-    </div>
+    </section>
 
-    <hr>
-    <h2 id="publications">publications</h2>
-    <div class="publications mt-3">
-      {% bibliography %}
-    </div>
+    <section id="publications" class="page-section" aria-labelledby="publications-heading" style="animation-delay: 0.3s;">
+      <h2 id="publications-heading" class="section-title anchor-target" aria-label="Publications">
+        publications
+      </h2>
+      <div class="publications mt-3">
+        {% bibliography %}
+      </div>
+    </section>
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
+      <section class="page-section" style="animation-delay: 0.4s;">
+        <h2 class="section-title">
+          <a href="{{ '/news/' | relative_url }}">news</a>
+        </h2>
+        {% include news.liquid limit=true %}
+      </section>
     {% endif %}
 
     <!-- Currently reading -->
     {% if page.currently_reading and page.currently_reading.enabled %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">currently reading</a>
-      </h2>
-      {% include currently_reading.liquid %}
+      <section class="page-section" style="animation-delay: 0.5s;">
+        <h2 class="section-title">
+          <a href="{{ '/publications/' | relative_url }}">currently reading</a>
+        </h2>
+        {% include currently_reading.liquid %}
+      </section>
     {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
+      <section class="page-section" style="animation-delay: 0.6s;">
+        <h2 class="section-title">
+          <a href="{{ '/publications/' | relative_url }}">selected publications</a>
+        </h2>
+        {% include selected_papers.liquid %}
+      </section>
     {% endif %}
 
     <!-- Social -->
@@ -105,3 +152,42 @@ layout: default
     {% endif %}
   </article>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const navLinks = document.querySelectorAll('.page-nav a');
+    
+    function onScroll() {
+      let currentId = '';
+      const scrollPosition = window.scrollY + 160; // Offset for sticky headers
+
+      navLinks.forEach(link => {
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const targetTop = targetElement.getBoundingClientRect().top + window.scrollY;
+          if (scrollPosition >= targetTop) {
+            currentId = targetId;
+          }
+        }
+      });
+
+      // If scrolled to the very bottom, activate the last link
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+        if (navLinks.length > 0) {
+          currentId = navLinks[navLinks.length - 1].getAttribute('href').substring(1);
+        }
+      }
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (currentId && link.getAttribute('href') === `#${currentId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll);
+    onScroll(); // Trigger immediately on load
+  });
+</script>

@@ -6,8 +6,8 @@ subtitle: "<em>Computer Science @ UIUC · Foundational ML, vision, multimodal</e
 
 profile:
   align: right
-  image: profile.svg
-  image_circular: false # crops the image to make it circular
+  image: profile_pic.jpeg
+  image_circular: true # crops the image to make it circular
   more_info:
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
@@ -36,37 +36,3 @@ I am a second-year Computer Science undergraduate at the University of Illinois 
 - **Location**: Urbana–Champaign, IL.
 
 Outside of research, I am a self-taught pianist and enjoy reading light novels and manga (with _Your Lie in April_ as a longtime favorite).
-
-## experience
-
-<div class="experience-timeline">
-  <div class="experience-item">
-    <div class="experience-meta">
-      <span class="experience-role">Undergraduate CS @ UIUC</span>
-      <span class="experience-dates">2023 – present</span>
-    </div>
-    <div class="experience-body">
-      <p>Coursework and self‑driven projects in machine learning, computer vision, and systems, with a focus on building strong fundamentals.</p>
-    </div>
-  </div>
-
-  <div class="experience-item">
-    <div class="experience-meta">
-      <span class="experience-role">Research‑oriented ML work</span>
-      <span class="experience-dates">recent</span>
-    </div>
-    <div class="experience-body">
-      <p>Exploring foundational models for vision and multimodal tasks, experimenting with data‑efficient finetuning and robustness to distribution shift.</p>
-    </div>
-  </div>
-
-  <div class="experience-item">
-    <div class="experience-meta">
-      <span class="experience-role">Technical + community experience</span>
-      <span class="experience-dates">ongoing</span>
-    </div>
-    <div class="experience-body">
-      <p>Hands‑on engineering with modern ML tooling and infrastructure, plus mentoring peers and organizing informal study groups around ML and math.</p>
-    </div>
-  </div>
-</div>
