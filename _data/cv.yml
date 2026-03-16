@@ -15,7 +15,7 @@ cv:
         area: Computer Science (B.S.)
         studyType: Bachelor of Science (in progress)
         start_date: 2023
-        end_date: Expected May 2028
+        end_date: 2028
         highlights:
           - GPA: 3.70/4.00; James Scholar (2024–present); Dean's List (Fall 2024).
           - Coursework: Data Structures; Linear Algebra; Computer Architecture.
@@ -25,7 +25,7 @@ cv:
       - company: Siebel School of Computing and Data Science
         position: Research Assistant, ScribeAR
         location: Urbana, IL
-        start_date: Feb 2026
+        start_date: 2026
         end_date: present
         url: https://scribear.illinois.edu/v/index.html
         summary: >
@@ -37,7 +37,7 @@ cv:
       - company: Siebel School of Computing and Data Science
         position: Course Assistant, Introduction to Computer Science II
         location: Urbana, IL
-        start_date: Fall 2025
+        start_date: 2025
         end_date: present
         summary: >
           Course assistant for CS II, supporting students in C++ programming and core data structures.
@@ -49,7 +49,7 @@ cv:
       - company: Siebel School of Computing and Data Science
         position: Course Assistant, Introduction to Computer Science I
         location: Urbana, IL
-        start_date: Spring 2025
+        start_date: 2025
         end_date: present
         summary: >
           Course assistant for CS I, helping students build strong foundations in Java and introductory CS.
@@ -61,8 +61,8 @@ cv:
       - name: ASL Transcription Service (CLIP + Django REST)
         location: UIUC
         role: Course Project
-        start_date: Aug 2025
-        end_date: Jan 2026
+        start_date: 2025
+        end_date: 2026
         url: https://github.com/juniper-halo/TranSlaDoorss
         website: https://juniper-halo.github.io/ASL-Classification-via-Contrastive-Learning/
         summary: >
@@ -75,8 +75,8 @@ cv:
       - name: Viral Protein Mutation Modeling
         location: Birla Vidya Niketan / Ritsumeikan University
         role: Mentored Research Project (Conference/Fair Presentation)
-        start_date: Jan 2022
-        end_date: Nov 2023
+        start_date: 2022
+        end_date: 2023
         summary: >
           Mentored research project on viral protein structure/function and mutation pathways, presented at conferences/fairs.
         highlights:
