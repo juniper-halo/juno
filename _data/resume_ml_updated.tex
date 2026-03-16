@@ -1,0 +1,178 @@
+%-------------------------
+% Resume in Latex (URSA-focused, 1 page)
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{fontspec}
+\usepackage{fontawesome}
+\usepackage{xeCJK}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.55in}
+\addtolength{\textheight}{1.05in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\renewcommand{\labelitemii}{$\circ$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
+
+
+% Role entry under an organization header
+\newcommand{\resumeRole}[2]{%
+  \vspace{-1pt}\item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textit{#1} & \textit{#2} \\
+  \end{tabular*}\vspace{-5pt}
+}
+
+\begin{document}
+
+%-----------HEADING-----------------
+\begin{center}
+    \bigskip
+  {\LARGE \textbf{Madhav (Juno) Tripathi}} \\[3pt]
+  \bigskip
+  \quad \quad \quad
+  \faPhone\ (217) 693-8850 \quad
+  \faEnvelope\ \href{mailto:madhavt2@illinois.edu}{madhavt2@illinois.edu}
+  \quad \faLinkedin\ \href{https://www.linkedin.com/in/junotripathi}{linkedin.com/in/madhav--tripathi}
+  \newline
+  \quad \faGithub\ \href{https://github.com/juniper-halo}{github.com/juniper-halo}
+  \bigskip
+\end{center}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {University of Illinois at Urbana-Champaign (UIUC)}{Urbana, IL}
+    {B.S. in Computer Science \quad \textit{GPA: 3.70/4.00}}{Expected May 2028}
+    \resumeItemListStart
+      \resumeItem{Honors}{James Scholar (2024--Present); Dean's List (Fall 2024)}
+        \resumeItem{Coursework}{Data Structures; Linear Algebra; Computer Architecture}
+        \resumeItem{In Progress}{Probability \& Statistics; Systems Programming; Database Systems; Computer System Organization}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Siebel School of Computing and Data Science}{Urbana, IL}
+    {Research Assistant,
+    \href{https://scribear.illinois.edu/v/index.html}{\underline{ScribeAR}}}{Feb 2026 -- Present}
+    \resumeItemListStart
+        \resumeItem{Currently working}{Designing and implementing a speaker-aware transcription architecture to integrate with a server-side ML diarization service over WebSockets, enabling real-time speaker-change detection, shared typed event contracts, and live frontend speaker state updates.}
+        \resumeItem{System}{Implemented and integrated a new StreamText transcription provider end-to-end across frontend state management, provider runtime logic, configuration UI, persistence migration, and provider registry wiring in a TypeScript monorepo architecture with a React/Vite + Redux web client, a Fastify-based backend, shared schema/library packages, and PostgreSQL infrastructure.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Siebel School of Computing and Data Science}{Urbana, IL}
+      {Course Assistant, Introduction to Computer Science II}{Fall 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Student Support}{Led in-person/online help sessions; debugged C++ code and reinforced core concepts with structured walkthroughs.}
+        \resumeItem{Instruction}{Facilitated discussion sections focused on hands-on implementation of course concepts.}
+        \resumeItem{Additional Support}{Built PrairieLearn practice activities for struggling students and led weekly extra-practice sessions.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Siebel School of Computing and Data Science}{Urbana, IL}
+      {Course Assistant, Introduction to Computer Science I}{Spring 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Student Support}{Held office hours; guided Java fundamentals, MP debugging, and quiz prep.}
+        \resumeItem{Instructional Support}{Supported a ~200-student discussion section and mentored ~30 students on a semester-long machine project.}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%------------PROJECTS------------------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {ASL Transcription Service (CLIP + Django REST)}{UIUC}
+  {Course Project \quad \href{https://github.com/juniper-halo/TranSlaDoorss}{\underline{Repo}} \;|\;
+   \href{https://juniper-halo.github.io/ASL-Classification-via-Contrastive-Learning/}{\underline{Project Page}}}{Aug 2025 -- Jan 2026}
+\resumeItemListStart
+  \resumeItem{Product}{Built a real-time ASL alphabet classifier (24 classes; J/Z excluded) with webcam capture $\rightarrow$ Django REST (\texttt{/img\_in/translate/}) $\rightarrow$ top-1 prediction + confidence.}
+  \resumeItem{Model}{Fine-tuned CLIP ViT-B/32 via prompt-tuned text tokens while optimizing the vision encoder; exported best checkpoint for deployment.}
+  \resumeItem{Results \& Tooling}{Implemented end-to-end train/infer/eval with checkpointing, cached inference, CI, and metrics dashboards (confusion, top-k, calibration/ECE); achieved 98.46\% best validation accuracy.}
+\resumeItemListEnd
+
+  \resumeSubheading
+    {Viral Protein Mutation Modeling}{Birla Vidya Niketan / Ritsumeikan University}
+    {Mentored Research Project (Conference/Fair Presentation)}{Jan 2022 -- Nov 2023}
+    \resumeItemListStart
+      \resumeItem{Scope}{Developed and presented a mentored project (guided by the high school CS department head) on viral protein structure/function and mutation pathways.}
+      \resumeItem{Modeling}{Organized a dataset pipeline from protein databank files and prototyped a CNN-based predictor on engineered representation of the spike protein; documented methodology, limitations, and findings for presentation.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%--------TECHNICAL SKILLS------------
+\section{Technical Skills}
+\resumeSubHeadingListStart
+\item \small{
+\textbf{Languages:} C++, C, Java, Python, HTML \\
+}
+
+\item \small{
+\textbf{Engineering Tools:} Git/GitHub, Linux/CLI, Conda, CI workflows, Docker
+}
+
+\item \small{
+\textbf{Data \& Vision:} OpenCV, NumPy, Pandas \\
+}
+
+\item \small{
+\textbf{Machine Learning:} PyTorch, Hugging Face, scikit-learn \\
+}
+\resumeSubHeadingListEnd
+
+\end{document}

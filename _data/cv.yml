@@ -1,0 +1,101 @@
+cv:
+  name: Madhav Tripathi
+  label: Undergraduate Researcher, Computer Science
+  email: madhavt2@illinois.edu
+  location: Urbana-Champaign, IL
+  website: https://juniper-halo.github.io/juno/
+  summary: >
+    Computer Science undergraduate at the University of Illinois Urbana-Champaign
+    focused on foundational machine learning, computer vision, and multimodal representation learning.
+
+  sections:
+    Education:
+      - institution: University of Illinois Urbana-Champaign
+        location: Urbana-Champaign, IL
+        area: Computer Science (B.S.)
+        studyType: Bachelor of Science (in progress)
+        start_date: 2023
+        end_date: Expected May 2028
+        highlights:
+          - GPA: 3.70/4.00; James Scholar (2024–present); Dean's List (Fall 2024).
+          - Coursework: Data Structures; Linear Algebra; Computer Architecture.
+          - In progress: Probability & Statistics; Systems Programming; Database Systems; Computer System Organization.
+
+    Experience:
+      - company: Siebel School of Computing and Data Science
+        position: Research Assistant, ScribeAR
+        location: Urbana, IL
+        start_date: Feb 2026
+        end_date: present
+        url: https://scribear.illinois.edu/v/index.html
+        summary: >
+          Research assistant on ScribeAR, building accessible real-time captioning and transcription systems.
+        highlights:
+          - Designing and implementing a speaker-aware transcription architecture that integrates with a server-side ML diarization service over WebSockets, enabling real-time speaker-change detection, shared typed event contracts, and live frontend speaker state updates.
+          - Implemented and integrated a new StreamText transcription provider end-to-end across frontend state management, provider runtime logic, configuration UI, persistence migration, and provider registry wiring in a TypeScript monorepo with a React/Vite + Redux web client, Fastify-based backend, shared schema/library packages, and PostgreSQL infrastructure.
+
+      - company: Siebel School of Computing and Data Science
+        position: Course Assistant, Introduction to Computer Science II
+        location: Urbana, IL
+        start_date: Fall 2025
+        end_date: present
+        summary: >
+          Course assistant for CS II, supporting students in C++ programming and core data structures.
+        highlights:
+          - Led in-person and online help sessions; debugged C++ code and reinforced core concepts with structured walkthroughs.
+          - Facilitated discussion sections focused on hands-on implementation of course concepts.
+          - Built PrairieLearn practice activities for struggling students and led weekly extra-practice sessions.
+
+      - company: Siebel School of Computing and Data Science
+        position: Course Assistant, Introduction to Computer Science I
+        location: Urbana, IL
+        start_date: Spring 2025
+        end_date: present
+        summary: >
+          Course assistant for CS I, helping students build strong foundations in Java and introductory CS.
+        highlights:
+          - Held office hours; guided Java fundamentals, MP debugging, and quiz preparation.
+          - Supported a ~200-student discussion section and mentored ~30 students on a semester-long machine project.
+
+    Projects:
+      - name: ASL Transcription Service (CLIP + Django REST)
+        location: UIUC
+        role: Course Project
+        start_date: Aug 2025
+        end_date: Jan 2026
+        url: https://github.com/juniper-halo/TranSlaDoorss
+        website: https://juniper-halo.github.io/ASL-Classification-via-Contrastive-Learning/
+        summary: >
+          Real-time ASL alphabet transcription service using webcam capture, a Django REST API, and a CLIP-based classifier.
+        highlights:
+          - Built a real-time ASL alphabet classifier (24 classes; J/Z excluded) with webcam capture → Django REST → top-1 prediction + confidence.
+          - Fine-tuned CLIP ViT-B/32 via prompt-tuned text tokens while optimizing the vision encoder; exported the best checkpoint for deployment.
+          - Implemented end-to-end train/infer/eval with checkpointing, cached inference, CI, and metrics dashboards (confusion, top-k, calibration/ECE); achieved 98.46% best validation accuracy.
+
+      - name: Viral Protein Mutation Modeling
+        location: Birla Vidya Niketan / Ritsumeikan University
+        role: Mentored Research Project (Conference/Fair Presentation)
+        start_date: Jan 2022
+        end_date: Nov 2023
+        summary: >
+          Mentored research project on viral protein structure/function and mutation pathways, presented at conferences/fairs.
+        highlights:
+          - Developed and presented a mentored project (guided by the high school CS department head) on viral protein structure/function and mutation pathways.
+          - Organized a dataset pipeline from protein databank files and prototyped a CNN-based predictor on an engineered representation of the spike protein; documented methodology, limitations, and findings.
+
+    Skills:
+      - name: Languages
+        level: Advanced
+        keywords: C++, C, Java, Python, HTML
+
+      - name: Engineering Tools
+        level: Advanced
+        keywords: Git, GitHub, Linux/CLI, Conda, CI workflows, Docker
+
+      - name: Data & Vision
+        level: Advanced
+        keywords: OpenCV, NumPy, Pandas
+
+      - name: Machine Learning
+        level: Advanced
+        keywords: PyTorch, Hugging Face, scikit-learn

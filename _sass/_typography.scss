@@ -25,7 +25,16 @@ strong {
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
   letter-spacing: -0.01em;
   line-height: 1.75;
 }
@@ -95,9 +104,9 @@ table.table a {
 p a {
   position: relative;
   font-weight: 500;
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     transform: scaleX(0);

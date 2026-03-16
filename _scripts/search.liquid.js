@@ -24,6 +24,14 @@ ninja.data = [
     },
   },
   {
+    id: "section-coursework",
+    title: "Coursework",
+    section: "Sections",
+    handler: () => {
+      window.location.href = "{{ '/' | relative_url }}#coursework";
+    },
+  },
+  {
     id: "section-projects",
     title: "Projects",
     section: "Sections",
@@ -32,11 +40,11 @@ ninja.data = [
     },
   },
   {
-    id: "section-publications",
-    title: "Publications",
+    id: "section-cv",
+    title: "CV",
     section: "Sections",
     handler: () => {
-      window.location.href = "{{ '/' | relative_url }}#publications";
+      window.location.href = "{{ '/cv/' | relative_url }}";
     },
   },
   {%- if page.currently_reading and page.currently_reading.enabled -%}

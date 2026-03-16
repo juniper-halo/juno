@@ -88,6 +88,7 @@ Every push to `main` should then rebuild and publish the site automatically.
     ```
 
   - They will appear in the Projects grid on the home page.
+
 - **Publications**:
   - Add BibTeX entries to `_bibliography/papers.bib`.
   - The Publications section on the home page uses `{% bibliography %}` via Jekyll Scholar.

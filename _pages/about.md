@@ -6,7 +6,8 @@ subtitle: "<em>Computer Science @ UIUC · Foundational ML, vision, multimodal</e
 
 profile:
   align: right
-  image: profile_pic.jpeg
+  image: profile_pic.png
+  image_dark: profile_pic_dark.png
   image_circular: true # crops the image to make it circular
   more_info:
 

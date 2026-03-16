@@ -80,25 +80,36 @@ ul.task-list input[type="checkbox"] {
 }
 
 // News
-.news table {
+.news .table-responsive {
   background: rgba(150, 150, 150, 0.05);
   backdrop-filter: blur(15px) saturate(150%);
   -webkit-backdrop-filter: blur(15px) saturate(150%);
   border-radius: 1.5rem;
   border: 1px solid rgba(150, 150, 150, 0.15);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-collapse: separate;
-  border-spacing: 0;
-  overflow: hidden;
-  width: 100%;
+  margin-bottom: 1.5rem;
 
-  td, th {
-    padding: 1.25rem;
-    border-bottom: 1px solid rgba(150, 150, 150, 0.1);
-  }
+  table {
+    margin-bottom: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
 
-  tr:last-child td {
-    border-bottom: none;
+    td,
+    th {
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(150, 150, 150, 0.1);
+    }
+
+    tr:last-child td,
+    tr:last-child th {
+      border-bottom: none;
+    }
   }
 }
 
@@ -108,7 +119,7 @@ ul.task-list input[type="checkbox"] {
   position: relative;
   margin: 1rem 0 2rem;
   padding-left: 2rem;
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -202,6 +213,80 @@ ul.task-list input[type="checkbox"] {
   color: var(--global-text-color-light);
 }
 
+// ---------------------------------------------------------------------------
+// Responsive components
+// ---------------------------------------------------------------------------
+
+@media (max-width: 768px) {
+  .page-nav {
+    top: 70px;
+    padding: 0.5rem 0.9rem;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+
+    a {
+      padding: 0.45rem 0.9rem;
+      white-space: nowrap;
+    }
+  }
+
+  .page-section {
+    padding: 2.25rem 1.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .section-title,
+  .page-section > h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .experience-timeline {
+    margin: 0.5rem 0 1.5rem;
+    padding-left: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .experience-item {
+    margin-left: 0;
+    padding: 1.1rem 1.1rem 1.2rem;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .experience-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+  .clearfix > p,
+  .clearfix > ul {
+    padding: 1.5rem 1.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .projects .row {
+    display: block;
+  }
+
+  .projects .row > [class^="col"],
+  .projects .row > [class*=" col"] {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.1rem;
+  }
+}
 // In-page navigation (single-page layout)
 
 .page-nav {
@@ -220,7 +305,7 @@ ul.task-list input[type="checkbox"] {
   border-radius: 999px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   max-width: fit-content;
-  
+
   /* Fallback for browsers that support backdrop-filter */
   @supports (backdrop-filter: blur(15px)) {
     background: rgba(150, 150, 150, 0.05);
@@ -248,7 +333,9 @@ ul.task-list input[type="checkbox"] {
     &.active {
       color: var(--global-theme-color);
       background: rgba(150, 150, 150, 0.15);
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02), 0 2px 8px rgba(0, 0, 0, 0.05);
+      box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.02),
+        0 2px 8px rgba(0, 0, 0, 0.05);
       transform: translateY(0);
     }
   }
@@ -268,7 +355,7 @@ ul.task-list input[type="checkbox"] {
 // Page sections
 
 .page-section {
-  background: rgba(150, 150, 150, 0.03);
+  background: rgba(150, 150, 150, 0.05);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
   border-radius: 2rem;
@@ -278,6 +365,12 @@ ul.task-list input[type="checkbox"] {
   margin-bottom: 4rem;
   opacity: 0;
   animation: fadeIn 0.8s ease-out forwards;
+
+  @supports not (
+    (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+  ) {
+    background: rgba(150, 150, 150, 0.1);
+  }
 }
 
 .section-title,
@@ -315,11 +408,11 @@ ul.task-list input[type="checkbox"] {
   a {
     color: inherit;
     text-decoration: none;
-    
+
     &::after {
       display: none;
     }
-    
+
     &:hover {
       color: var(--global-theme-color);
     }
@@ -334,7 +427,8 @@ ul.task-list input[type="checkbox"] {
 .clearfix {
   margin-bottom: 2rem;
 
-  > p, > ul {
+  > p,
+  > ul {
     background: rgba(150, 150, 150, 0.05);
     backdrop-filter: blur(15px) saturate(150%);
     -webkit-backdrop-filter: blur(15px) saturate(150%);
@@ -375,13 +469,14 @@ ul.task-list input[type="checkbox"] {
       box-shadow: none;
       border-color: transparent;
     }
-    
+
     &::after {
       display: none;
     }
   }
 
-  > p:last-child, > ul:last-child {
+  > p:last-child,
+  > ul:last-child {
     margin-bottom: 0;
   }
 }
@@ -398,7 +493,7 @@ ul.task-list input[type="checkbox"] {
   img {
     width: 100%;
     padding: 4px;
-    background: linear-gradient(135deg, var(--global-theme-color), #8b5cf6);
+    background: var(--global-profile-bg);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 50% !important;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -409,6 +504,10 @@ ul.task-list input[type="checkbox"] {
       transform: scale(1.05) rotate(-2deg);
       box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2);
     }
+  }
+
+  .profile-image-dark {
+    /* Hook for dark-mode-specific tweaks to the profile image */
   }
 
   .more-info {
@@ -436,7 +535,11 @@ ul.task-list input[type="checkbox"] {
 // CV
 
 .cv {
-  margin-bottom: 40px;
+  margin: 2rem 0 3rem;
+
+  > .card {
+    margin-bottom: 1.75rem;
+  }
 
   .card {
     background: rgba(150, 150, 150, 0.05);
@@ -447,9 +550,19 @@ ul.task-list input[type="checkbox"] {
     border-radius: 1.5rem;
     overflow: hidden;
 
+    .card-title {
+      margin-bottom: 0.75rem;
+    }
+
+    .card-body,
+    .table {
+      margin-bottom: 0;
+    }
+
     .list-group-item {
       background-color: transparent;
-      border-color: rgba(150, 150, 150, 0.15);
+      border-color: rgba(150, 150, 150, 0.12);
+      padding: 0.6rem 1rem;
 
       .badge {
         color: var(--global-card-bg-color) !important;
@@ -467,20 +580,48 @@ ul.task-list input[type="checkbox"] {
   -webkit-backdrop-filter: none;
   color: var(--global-text-color);
 
-  td, th {
+  td,
+  th {
     border-bottom: none;
     padding: 0.5rem 1rem 0.5rem 0;
   }
 }
 
 .date-column {
-  width: 75px;
-  transform: translateX(-15px) translateY(-5px);
+  width: 90px;
+  transform: none;
+}
+
+.cv-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.25rem;
+  padding: 0.25rem 0.15rem;
+}
+
+.cv-meta-date {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--global-text-color);
+}
+
+.cv-meta-location {
+  font-size: 0.8rem;
+  color: var(--global-text-color-light);
 }
 
 // Projects
 
 .projects {
+  .projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
   a {
     text-decoration: none;
 
@@ -491,9 +632,39 @@ ul.task-list input[type="checkbox"] {
     }
   }
 
+  .project-links {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Ensure clicks hit the button, not the card link */
+
+    .github-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--global-text-color);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      i::before {
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        transform: scale(1.2) translateY(-3px);
+        color: var(--global-theme-color);
+
+        i::before {
+          color: var(--global-theme-color);
+        }
+      }
+    }
+  }
+
   .card {
     overflow: hidden;
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
 
@@ -509,21 +680,41 @@ ul.task-list input[type="checkbox"] {
       border-bottom: 1px solid rgba(0, 0, 0, 0.05);
       transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    
+
     &:hover img {
       transform: scale(1.08);
     }
-    
+
     .card-body {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
     }
+
+    .card-title {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
   }
 
   .col {
     padding-bottom: 2rem;
+    display: inline-flex;
+    align-items: stretch;
+    flex: 0 1 auto;
+
+    > a {
+      display: inline-flex;
+      width: auto;
+      max-width: 100%;
+    }
+
+    .card {
+      width: auto;
+      max-width: 100%;
+    }
   }
 
   .grid-sizer,
@@ -546,7 +737,7 @@ ul.task-list input[type="checkbox"] {
 
 .publications {
   margin-top: 2rem;
-  
+
   ol.bibliography {
     list-style: none;
     padding: 0;
@@ -649,6 +840,48 @@ ul.task-list input[type="checkbox"] {
     font-size: 0.9rem;
     margin-top: 1.5rem;
     opacity: 0.8;
+  }
+}
+
+// Header search pill
+
+.search-pill {
+  border: none;
+  background: transparent;
+  padding: 0;
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(150, 150, 150, 0.1);
+    border: 1px solid rgba(150, 150, 150, 0.25);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .search-hint {
+    font-size: 0.8rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 0.4rem;
+    background: rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+  }
+
+  &:hover .nav-link {
+    background: rgba(150, 150, 150, 0.18);
+    border-color: rgba(150, 150, 150, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   }
 }
 

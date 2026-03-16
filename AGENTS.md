@@ -249,26 +249,26 @@ This generates the static site into `_site/`, which can be uploaded to any stati
 
 ### How to restore a removed component
 
-- **Blog**  
-  - Re-create a blog index page at `_pages/blog.md` (layout `page`, `permalink: /blog/`, `nav: true`) and add posts under `_posts/` following standard Jekyll conventions.  
+- **Blog**
+  - Re-create a blog index page at `_pages/blog.md` (layout `page`, `permalink: /blog/`, `nav: true`) and add posts under `_posts/` following standard Jekyll conventions.
   - Optionally re-enable the blog link in the navbar by adding `nav: true` and `nav_order` to the blog page front matter and re-introducing page links into `_includes/header.liquid` (see al-folio upstream for the original header template).
 
-- **Teaching / courses**  
-  - Add course markdown files back into `_teachings/` and create a page like `_pages/teaching.md` with `layout: page`, `permalink: /teaching/`, `nav: true`.  
+- **Teaching / courses**
+  - Add course markdown files back into `_teachings/` and create a page like `_pages/teaching.md` with `layout: page`, `permalink: /teaching/`, `nav: true`.
   - Use the existing includes `courses.liquid` / `course_schedule.liquid` as shown in the upstream al-folio example.
 
-- **News / announcements**  
-  - Add news items under `_news/` and create `_pages/news.md` (layout `page`, `permalink: /news/`, `nav: true`) that loops over `site.news`.  
+- **News / announcements**
+  - Add news items under `_news/` and create `_pages/news.md` (layout `page`, `permalink: /news/`, `nav: true`) that loops over `site.news`.
   - Re-add a nav link (as above) if you want it visible in the top bar.
 
-- **Books / profiles / CV / repositories**  
-  - Copy the corresponding example page from the upstream al-folio repository into `_pages/` and adjust front matter (`layout`, `permalink`, `nav`, `nav_order`).  
+- **Books / profiles / CV / repositories**
+  - Copy the corresponding example page from the upstream al-folio repository into `_pages/` and adjust front matter (`layout`, `permalink`, `nav`, `nav_order`).
   - Keep existing layouts/partials: `_layouts/book-shelf.liquid`, `_layouts/profiles.liquid`, `_layouts/cv.liquid`, repository includes under `_includes/repository/` are still present and can be reused.
 
 In short: **layouts, includes, and styles are left intact**, so restoring any removed feature is a matter of:
 
-1. Re-creating the relevant markdown page(s) under `_pages/` or collection items under `_news/`, `_teachings/`, `_books/`, `_posts/`.  
-2. Giving them correct front matter (`layout`, `permalink`, `nav`, `nav_order`).  
+1. Re-creating the relevant markdown page(s) under `_pages/` or collection items under `_news/`, `_teachings/`, `_books/`, `_posts/`.
+2. Giving them correct front matter (`layout`, `permalink`, `nav`, `nav_order`).
 3. Optionally re-enabling header navigation by restoring the full page list logic in `_includes/header.liquid` (check the al-folio upstream version for the original snippet).
 
 ## What NOT to Commit

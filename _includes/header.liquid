@@ -45,8 +45,12 @@
           {% if site.search_enabled %}
             <!-- Search -->
             <li class="nav-item">
-              <button id="search-toggle" title="Search" onclick="openSearchModal()">
-                <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
+              <button id="search-toggle" class="search-pill" title="Search sections (Press Ctrl+K)" onclick="openSearchModal()">
+                <span class="nav-link">
+                  <i class="fa-solid fa-magnifying-glass mr-1"></i>
+                  Search site
+                  <span class="search-hint">Ctrl&nbsp;K</span>
+                </span>
               </button>
             </li>
           {% endif %}

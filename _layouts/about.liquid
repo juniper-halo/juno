@@ -7,17 +7,43 @@ layout: default
       {% if page.profile %}
         <div class="hero-profile">
           {% if page.profile.image %}
-            {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+            {% assign profile_image_path_light = page.profile.image | prepend: 'assets/img/' %}
+            {% if page.profile.image_dark %}
+              {% assign profile_image_path_dark = page.profile.image_dark | prepend: 'assets/img/' %}
+            {% else %}
+              {% assign profile_image_path_dark = profile_image_path_light %}
+            {% endif %}
             {% if page.profile.image_circular %}
               {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
             {% else %}
               {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
             {% endif %}
+            {% assign profile_image_class_dark = profile_image_class | append: ' profile-image-dark' %}
             {% capture sizes %}(min-width: {{ site.max_width }}) 250px, (min-width: 576px) 250px, 50vw{% endcapture %}
-            {%
-              include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-              cache_bust=true
-            %}
+
+            <div class="only-light">
+              {%
+                include figure.liquid
+                loading="eager"
+                path=profile_image_path_light
+                class=profile_image_class
+                sizes=sizes
+                alt=page.profile.image
+                cache_bust=true
+              %}
+            </div>
+
+            <div class="only-dark">
+              {%
+                include figure.liquid
+                loading="eager"
+                path=profile_image_path_dark
+                class=profile_image_class_dark
+                sizes=sizes
+                alt=page.profile.image
+                cache_bust=true
+              %}
+            </div>
           {% endif %}
           {% if page.profile.more_info %}
             <div class="more-info">{{ page.profile.more_info }}</div>
@@ -25,8 +51,8 @@ layout: default
         </div>
       {% endif %}
 
-      <h1 class="post-title">
-        Hi, I'm <span class="font-weight-bold">{{ site.first_name }}</span>.
+      <h1 class="post-title hero-title">
+        Hi, I'm <span class="font-weight-bold">{{ site.first_name }}</span>...
       </h1>
       <p class="desc">
         Welcome to my portfolio. I'm a computer science student exploring foundational ML, vision, and multimodal systems.
@@ -38,7 +64,8 @@ layout: default
     <a href="#about">About</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#publications">Publications</a>
+    <a href="#coursework">Coursework</a>
+    <a href="#currently-reading">Currently reading</a>
   </nav>
 
   <article class="single-page">
@@ -55,31 +82,45 @@ layout: default
       <div class="experience-timeline mt-3">
         <div class="experience-item">
           <div class="experience-meta">
-            <span class="experience-role">Undergraduate CS @ UIUC</span>
-            <span class="experience-dates">2023 – present</span>
+            <span class="experience-role">Research Assistant, ScribeAR — Siebel School of Computing and Data Science</span>
+            <span class="experience-dates">Feb 2026 – present · Urbana, IL</span>
           </div>
           <div class="experience-body">
-            <p>Coursework and self‑driven projects in machine learning, computer vision, and systems, with a focus on building strong fundamentals.</p>
+            <p>
+              Research assistant on
+              <a href="https://scribear.illinois.edu/v/index.html" target="_blank" rel="noopener noreferrer">ScribeAR</a>,
+              building accessible real-time captioning and transcription systems.
+            </p>
+            <p>
+              Designing and implementing a speaker-aware transcription architecture that integrates with a server-side ML diarization service over WebSockets, enabling real-time speaker-change detection, shared typed event contracts, and live frontend speaker state updates.
+            </p>
+            <p>
+              Implemented and integrated a new StreamText transcription provider end-to-end across frontend state management, provider runtime logic, configuration UI, persistence migration, and provider registry wiring in a TypeScript monorepo with a React/Vite + Redux web client, Fastify-based backend, shared schema/library packages, and PostgreSQL infrastructure.
+            </p>
           </div>
         </div>
 
         <div class="experience-item">
           <div class="experience-meta">
-            <span class="experience-role">Research‑oriented ML work</span>
-            <span class="experience-dates">recent</span>
+            <span class="experience-role">Course Assistant, Introduction to Computer Science II — Siebel School of Computing and Data Science</span>
+            <span class="experience-dates">Fall 2025 – present · Urbana, IL</span>
           </div>
           <div class="experience-body">
-            <p>Exploring foundational models for vision and multimodal tasks, experimenting with data‑efficient finetuning and robustness to distribution shift.</p>
+            <p>Course assistant for CS II, supporting students in C++ programming and core data structures.</p>
+            <p>Led in-person and online help sessions; debugged C++ code and reinforced core concepts with structured walkthroughs.</p>
+            <p>Facilitated discussion sections focused on hands-on implementation of course concepts and built PrairieLearn practice activities plus weekly extra-practice sessions.</p>
           </div>
         </div>
 
         <div class="experience-item">
           <div class="experience-meta">
-            <span class="experience-role">Technical + community experience</span>
-            <span class="experience-dates">ongoing</span>
+            <span class="experience-role">Course Assistant, Introduction to Computer Science I — Siebel School of Computing and Data Science</span>
+            <span class="experience-dates">Spring 2025 – present · Urbana, IL</span>
           </div>
           <div class="experience-body">
-            <p>Hands‑on engineering with modern ML tooling and infrastructure, plus mentoring peers and organizing informal study groups around ML and math.</p>
+            <p>Course assistant for CS I, helping students build strong foundations in Java and introductory CS.</p>
+            <p>Held office hours; guided Java fundamentals, MP debugging, and quiz preparation.</p>
+            <p>Supported a ~200-student discussion section and mentored ~30 students on a semester-long machine project.</p>
           </div>
         </div>
       </div>
@@ -91,7 +132,7 @@ layout: default
       <h2 id="projects-heading" class="section-title anchor-target" aria-label="Projects">projects</h2>
       <div class="projects mt-3">
         {% assign sorted_projects = site.projects | sort: "importance" %}
-        <div class="row row-cols-1 row-cols-md-3">
+        <div class="projects-list">
           {% for project in sorted_projects %}
             {% include projects.liquid %}
           {% endfor %}
@@ -99,6 +140,103 @@ layout: default
       </div>
     </section>
 
+    <section id="coursework" class="page-section" aria-labelledby="coursework-heading" style="animation-delay: 0.22s;">
+      <h2 id="coursework-heading" class="section-title anchor-target" aria-label="Coursework">coursework</h2>
+      <div class="row coursework-grid" style="font-size: 1.02rem;">
+        <div class="col-md-6 mb-3">
+          <div class="card h-100 hoverable">
+            <div class="card-body">
+              <div class="experience-dates mb-1">CS 361</div>
+              <h3 class="card-title">Probability &amp; Statistics for CS</h3>
+              <p class="card-text">
+                Introductory probability and statistics with a focus on applications in computer science and data analysis.
+              </p>
+              <a href="https://courses.illinois.edu/schedule/2026/fall/CS/361" target="_blank" rel="noopener noreferrer">
+                View course page
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <div class="card h-100 hoverable">
+            <div class="card-body">
+              <div class="experience-dates mb-1">CS 341</div>
+              <h3 class="card-title">System Programming</h3>
+              <p class="card-text">
+                C and POSIX systems programming: processes, memory, concurrency, filesystems, and basic networking.
+              </p>
+              <a href="https://cs.illinois.edu/academics/courses/CS341" target="_blank" rel="noopener noreferrer">
+                View course page
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <div class="card h-100 hoverable">
+            <div class="card-body">
+              <div class="experience-dates mb-1">CS 411</div>
+              <h3 class="card-title">Database Systems</h3>
+              <p class="card-text">
+                Relational databases, SQL, data modeling, indexing, query optimization, and transactional guarantees.
+              </p>
+              <a href="https://cs.illinois.edu/academics/courses/cs411" target="_blank" rel="noopener noreferrer">
+                View course page
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <div class="card h-100 hoverable">
+            <div class="card-body">
+              <div class="experience-dates mb-1">CS 233</div>
+              <h3 class="card-title">Computer Architecture</h3>
+              <p class="card-text">
+                Digital logic, machine-level programming, memory hierarchies, and the architecture of modern processors.
+              </p>
+              <a href="https://cs.illinois.edu/academics/courses/cs233-120208" target="_blank" rel="noopener noreferrer">
+                View course page
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <div class="card h-100 hoverable">
+            <div class="card-body">
+              <div class="experience-dates mb-1">CS 225</div>
+              <h3 class="card-title">Data Structures</h3>
+              <p class="card-text">
+                Core data structures in C++: lists, trees, hash tables, graphs, and their performance tradeoffs.
+              </p>
+              <a href="https://cs.illinois.edu/academics/courses/cs225" target="_blank" rel="noopener noreferrer">
+                View course page
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <div class="card h-100 hoverable">
+            <div class="card-body">
+              <div class="experience-dates mb-1">MATH 257</div>
+              <h3 class="card-title">Linear Algebra with Computational Applications</h3>
+              <p class="card-text">
+                Linear algebra with computational tools and real-world applications: vector spaces, linear transformations, eigenvalues, and singular value decomposition.
+              </p>
+              <a href="https://courses.illinois.edu/search/schedule/2026/spring/MATH/257?sess=" target="_blank" rel="noopener noreferrer">
+                View course page
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {%- comment -%}
+    Publications section hidden for now; see _layouts/about.liquid if you want to re-enable.
     <section id="publications" class="page-section" aria-labelledby="publications-heading" style="animation-delay: 0.3s;">
       <h2 id="publications-heading" class="section-title anchor-target" aria-label="Publications">
         publications
@@ -107,6 +245,7 @@ layout: default
         {% bibliography %}
       </div>
     </section>
+    {%- endcomment -%}
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
