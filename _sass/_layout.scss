@@ -4,10 +4,16 @@
 
 @use "variables" as v;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding-bottom: 70px;
   color: var(--global-text-color);
-  background-color: var(--global-bg-color);
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.08), transparent 55%),
+    var(--global-bg-color);
 
   h1,
   h2,

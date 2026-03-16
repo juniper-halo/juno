@@ -2,11 +2,11 @@
 layout: about
 title: about
 permalink: /
-subtitle: "<em>Pronounced as Maa-dh-av Tri-paa-thee</em>"
+subtitle: "<em>Computer Science @ UIUC · Foundational ML, vision, multimodal</em>"
 
 profile:
   align: right
-  image: 20231110_184139_Original.jpeg
+  image: profile.svg
   image_circular: false # crops the image to make it circular
   more_info:
 
@@ -29,6 +29,44 @@ currently_reading:
   limit: 5
 ---
 
-I am a second-year Computer Science undergraduate at the University of Illinois Urbana-Champaign, with a strong interest in research on foundational machine learning models, particularly in computer vision and multimodal representation learning. I am actively seeking research opportunities and mentorship in these areas. I am a recipient of the Edmund James Scholar Award for academic excellence.
+I am a second-year Computer Science undergraduate at the University of Illinois Urbana–Champaign, interested in **foundational machine learning models**—especially **computer vision** and **multimodal representation learning**. I’m currently looking for research opportunities and mentorship in these areas.
 
-Outside of research, I am a self-taught pianist and enjoy reading light novels and manga, with Your Lie in April as a longtime favorite.
+- **Current focus**: scalable vision and multimodal models that are **data-efficient**, **robust out-of-distribution**, and easy to **adapt to new tasks**.
+- **Interests**: representation learning, robustness, and the interface between classical vision and modern foundation models.
+- **Location**: Urbana–Champaign, IL.
+
+Outside of research, I am a self-taught pianist and enjoy reading light novels and manga (with _Your Lie in April_ as a longtime favorite).
+
+## experience
+
+<div class="experience-timeline">
+  <div class="experience-item">
+    <div class="experience-meta">
+      <span class="experience-role">Undergraduate CS @ UIUC</span>
+      <span class="experience-dates">2023 – present</span>
+    </div>
+    <div class="experience-body">
+      <p>Coursework and self‑driven projects in machine learning, computer vision, and systems, with a focus on building strong fundamentals.</p>
+    </div>
+  </div>
+
+  <div class="experience-item">
+    <div class="experience-meta">
+      <span class="experience-role">Research‑oriented ML work</span>
+      <span class="experience-dates">recent</span>
+    </div>
+    <div class="experience-body">
+      <p>Exploring foundational models for vision and multimodal tasks, experimenting with data‑efficient finetuning and robustness to distribution shift.</p>
+    </div>
+  </div>
+
+  <div class="experience-item">
+    <div class="experience-meta">
+      <span class="experience-role">Technical + community experience</span>
+      <span class="experience-dates">ongoing</span>
+    </div>
+    <div class="experience-body">
+      <p>Hands‑on engineering with modern ML tooling and infrastructure, plus mentoring peers and organizing informal study groups around ML and math.</p>
+    </div>
+  </div>
+</div>

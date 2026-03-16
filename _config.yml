@@ -9,7 +9,7 @@ last_name: Tripathi (Juno/ジュノー)
 contact_note: >
   Email is the best way to reach me!
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  Computer Science undergraduate at UIUC interested in foundational ML (vision + multimodal).
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -18,8 +18,8 @@ keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your o
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://alshedivat.github.io # the base hostname & protocol for your site
-baseurl: /al-folio # the subpath of your site, e.g. /blog/. Leave blank for root
+url: https://juniper-halo.github.io # the base hostname & protocol for your site
+baseurl: /juno # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
@@ -55,7 +55,7 @@ external_services:
 
 navbar_fixed: true
 footer_fixed: true
-search_enabled: false
+search_enabled: true
 socials_in_search: true
 posts_in_search: true
 bib_search: true
@@ -70,8 +70,8 @@ max_width: 930px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
 og_image: # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
@@ -205,20 +205,9 @@ exclude:
   - purgecss.config.js
   - README.md
   - readme_preview/
-  - _posts/
-  - _news/
-  - _projects/
-  - _teachings/
-  - _books/
-  - _pages/blog.md
-  - _pages/publications.md
-  - _pages/projects.md
-  - _pages/teaching.md
-  - _pages/repositories.md
-  - _pages/cv.md
-  - _pages/profiles.md
+  - _posts/ # hide theme demo posts until you add your own
+  - _pages/blog.md # hide theme demo blog page until you add posts
   - vendor
-  - _pages/dropdown.md
 keep_files:
   - CNAME
   - .nojekyll
@@ -659,20 +648,3 @@ third_party_libraries:
 # Get external JSON data
 # -----------------------------------------------------------------------------
 
-jekyll_get_json:
-  - data: resume
-    json: assets/json/resume.json # it can also be an url
-
-jsonresume:
-  - basics
-  - work
-  - education
-  - publications
-  - projects
-  - volunteer
-  - awards
-  - certificates
-  - skills
-  - languages
-  - interests
-  - references

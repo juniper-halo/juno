@@ -38,6 +38,19 @@ ul.task-list input[type="checkbox"] {
 
 .card {
   background-color: var(--global-card-bg-color);
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.07);
+  transition:
+    transform 160ms ease-out,
+    box-shadow 160ms ease-out,
+    border-color 160ms ease-out;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 45px rgba(15, 23, 42, 0.12);
+    border-color: rgba(0, 0, 0, 0.04);
+  }
 
   .card-img {
     width: 100%;
@@ -46,10 +59,102 @@ ul.task-list input[type="checkbox"] {
 
   .card-title {
     color: var(--global-text-color);
+    letter-spacing: 0.01em;
+    font-weight: 600;
   }
 
   .card-body {
     padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  }
+}
+
+// Experience timeline
+
+.experience-timeline {
+  position: relative;
+  margin: 1.5rem 0 2.5rem;
+  padding-left: 1.25rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0.55rem;
+    top: 0.2rem;
+    bottom: 0.2rem;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      rgba(148, 163, 184, 0.4),
+      rgba(56, 189, 248, 0.9)
+    );
+  }
+}
+
+.experience-item {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 1.4rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -0.05rem;
+    top: 0.3rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 999px;
+    border: 2px solid var(--global-card-bg-color);
+    background: radial-gradient(circle, var(--global-theme-color), #22d3ee);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.22);
+  }
+}
+
+.experience-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.15rem;
+}
+
+.experience-role {
+  font-weight: 600;
+}
+
+.experience-dates {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--global-text-color-light);
+}
+
+.experience-body {
+  font-size: 0.95rem;
+  color: var(--global-text-color-light);
+}
+
+// In-page navigation (single-page layout)
+
+.page-nav {
+  margin: 1.5rem 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+
+  a {
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--global-divider-color);
+    color: var(--global-text-color);
+    background-color: rgba(15, 23, 42, 0.02);
+
+    &:hover {
+      text-decoration: none;
+      border-color: var(--global-theme-color);
+      color: var(--global-theme-color);
+    }
   }
 }
 
@@ -136,13 +241,17 @@ ul.task-list input[type="checkbox"] {
   }
 
   .card {
+    overflow: hidden;
+
     img {
       width: 100%;
+      object-fit: cover;
+      max-height: 220px;
     }
   }
 
   .col {
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
   }
 
   .grid-sizer,
@@ -175,7 +284,7 @@ ul.task-list input[type="checkbox"] {
   text-align: center;
 
   .contact-icons {
-    font-size: 4rem;
+    font-size: 2.6rem;
 
     a {
       img {

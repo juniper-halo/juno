@@ -15,6 +15,7 @@ layout: default
   </header>
 
   <article>
+    <a class="anchor" id="about"></a>
     {% if page.profile %}
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
@@ -38,7 +39,33 @@ layout: default
       </div>
     {% endif %}
 
+    <nav class="page-nav">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+    </nav>
+
     <div class="clearfix">{{ content }}</div>
+
+    <!-- Single-page sections -->
+
+    <hr>
+    <h2 id="projects">projects</h2>
+    <div class="projects mt-3">
+      {% assign sorted_projects = site.projects | sort: "importance" %}
+      <div class="row row-cols-1 row-cols-md-3">
+        {% for project in sorted_projects %}
+          {% include projects.liquid %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <hr>
+    <h2 id="publications">publications</h2>
+    <div class="publications mt-3">
+      {% bibliography %}
+    </div>
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}

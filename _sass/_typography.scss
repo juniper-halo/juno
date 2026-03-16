@@ -19,6 +19,19 @@ strong {
   color: var(--global-text-color);
 }
 
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    sans-serif;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.03em;
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
