@@ -21,6 +21,14 @@ ninja.data = [
     },
   },
   {
+    id: "section-coursework",
+    title: "Coursework",
+    section: "Sections",
+    handler: () => {
+      window.location.href = "/juno/#coursework";
+    },
+  },
+  {
     id: "section-projects",
     title: "Projects",
     section: "Sections",
@@ -29,18 +37,18 @@ ninja.data = [
     },
   },
   {
-    id: "section-publications",
-    title: "Publications",
+    id: "section-cv",
+    title: "CV",
     section: "Sections",
     handler: () => {
-      window.location.href = "/juno/#publications";
+      window.location.href = "/juno/cv/";
     },
   },{
         id: 'social-cv',
         title: 'CV',
         section: 'Socials',
         handler: () => {
-          window.open("/juno/assets/pdf/resume_ml_updated.pdf", "_blank");
+          window.open("/juno/cv/", "_blank");
         },
       },{
         id: 'social-email',
