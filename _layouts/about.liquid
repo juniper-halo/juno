@@ -121,8 +121,8 @@ layout: default
     <!-- Currently reading -->
     {% if page.currently_reading and page.currently_reading.enabled %}
       <section class="page-section" style="animation-delay: 0.5s;">
-        <h2 class="section-title">
-          <a href="{{ '/publications/' | relative_url }}">currently reading</a>
+        <h2 class="section-title" id="currently-reading">
+          currently reading
         </h2>
         {% include currently_reading.liquid %}
       </section>
