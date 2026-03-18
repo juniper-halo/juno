@@ -14,30 +14,43 @@ cv:
         location: Urbana-Champaign, IL
         area: Computer Science (B.S.)
         studyType: Bachelor of Science (in progress)
-        start_date: 2023
-        end_date: 2028
+        start_date: 2023-08
+        end_date: 2028-05
         highlights:
-          - GPA: 3.70/4.00; James Scholar (2024–present); Dean's List (Fall 2024).
-          - Coursework: Data Structures; Linear Algebra; Computer Architecture.
-          - In progress: Probability & Statistics; Systems Programming; Database Systems; Computer System Organization.
+          - "GPA: 3.70/4.00; James Scholar (2024–present); Dean’s List (Fall 2024)."
+          - "Coursework: Data Structures; Linear Algebra; Computer Architecture."
+          - "In progress: Probability & Statistics; Systems Programming; Database Systems; Computer System Organization."
 
     Experience:
       - company: Siebel School of Computing and Data Science
+        position: Research Assistant, Shepherd Research Lab
+        location: Urbana, IL
+        start_date: 2026-03
+        end_date: present
+        summary: >
+          Research assistant in Shepherd Lab, developing methods to improve context coherence and compute on masked/discrete diffusion-based language models.
+        highlights:
+          - Currently working: developing methods to improve context coherence and compute on masked/discrete diffusion-based language models.
+          - Designed and implemented a reproducible ablation pipeline for a training-free diffusion-based rendering, benchmarking MVSplat against four SEVA variants with Hydra-configured experiment orchestration and CLIP-guided schedule modulation.
+          - Isolated per-scene and per-mode artifacts and used metrics such as PSNR, SSIM, LPIPS, and MUSIQ to quantify diffusion work and quality under different conditions.
+
+      - company: Siebel School of Computing and Data Science
         position: Research Assistant, ScribeAR
         location: Urbana, IL
-        start_date: 2026
+        start_date: 2026-02
         end_date: present
         url: https://scribear.illinois.edu/v/index.html
         summary: >
           Research assistant on ScribeAR, building accessible real-time captioning and transcription systems.
         highlights:
+          - Currently developing a general-purpose Redux state migrator to support the addition of new UI components without custom migrations.
           - Designing and implementing a speaker-aware transcription architecture that integrates with a server-side ML diarization service over WebSockets, enabling real-time speaker-change detection, shared typed event contracts, and live frontend speaker state updates.
           - Implemented and integrated a new StreamText transcription provider end-to-end across frontend state management, provider runtime logic, configuration UI, persistence migration, and provider registry wiring in a TypeScript monorepo with a React/Vite + Redux web client, Fastify-based backend, shared schema/library packages, and PostgreSQL infrastructure.
 
       - company: Siebel School of Computing and Data Science
         position: Course Assistant, Introduction to Computer Science II
         location: Urbana, IL
-        start_date: 2025
+        start_date: 2025-08
         end_date: present
         summary: >
           Course assistant for CS II, supporting students in C++ programming and core data structures.
@@ -49,7 +62,7 @@ cv:
       - company: Siebel School of Computing and Data Science
         position: Course Assistant, Introduction to Computer Science I
         location: Urbana, IL
-        start_date: 2025
+        start_date: 2025-01
         end_date: present
         summary: >
           Course assistant for CS I, helping students build strong foundations in Java and introductory CS.
@@ -61,8 +74,8 @@ cv:
       - name: ASL Transcription Service (CLIP + Django REST)
         location: UIUC
         role: Course Project
-        start_date: 2025
-        end_date: 2026
+        start_date: 2025-08
+        end_date: 2026-01
         url: https://github.com/juniper-halo/TranSlaDoorss
         website: https://juniper-halo.github.io/ASL-Classification-via-Contrastive-Learning/
         summary: >
@@ -75,8 +88,8 @@ cv:
       - name: Viral Protein Mutation Modeling
         location: Birla Vidya Niketan / Ritsumeikan University
         role: Mentored Research Project (Conference/Fair Presentation)
-        start_date: 2022
-        end_date: 2023
+        start_date: 2022-01
+        end_date: 2023-11
         summary: >
           Mentored research project on viral protein structure/function and mutation pathways, presented at conferences/fairs.
         highlights:
@@ -85,17 +98,17 @@ cv:
 
     Skills:
       - name: Languages
-        level: Advanced
+        level:
         keywords: C++, C, Java, Python, HTML
 
       - name: Engineering Tools
-        level: Advanced
+        level:
         keywords: Git, GitHub, Linux/CLI, Conda, CI workflows, Docker
 
       - name: Data & Vision
-        level: Advanced
+        level:
         keywords: OpenCV, NumPy, Pandas
 
       - name: Machine Learning
-        level: Advanced
+        level:
         keywords: PyTorch, Hugging Face, scikit-learn

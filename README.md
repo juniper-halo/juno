@@ -18,7 +18,7 @@ This repo is intentionally minimal and only contains what’s needed to render t
   - Social links and contact note from `_data/socials.yml`.
 - **Assets**:
   - Images: only `assets/img/profile.svg` and a small set of your own photos.
-  - PDFs: only `assets/pdf/resume_ml_updated.pdf` (your CV).
+  - PDFs: only `assets/pdf/resume_juno_latest.pdf` (your CV).
 
 No blog, labs, courses, community gallery, or other theme demo content remains.
 

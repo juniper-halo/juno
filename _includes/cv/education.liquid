@@ -17,11 +17,31 @@
             {% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}
           {% endcapture %}
 
-          {% if start_date != '' %}
-            {% comment %} Extract year only from dates like "1933-01-01" or just use "1933" as is {% endcomment %}
-            {% assign startYear = start_date | split: '-' | first %}
-            {% assign endYear = end_date | split: '-' | first | default: 'Present' %}
-            {% assign date = startYear | append: ' – ' | append: endYear %}
+          {% assign start_date_trimmed = start_date | strip %}
+          {% assign end_date_trimmed = end_date | strip %}
+
+          {% if start_date_trimmed != '' %}
+            {% assign start_parts = start_date_trimmed | split: '-' %}
+            {% if start_parts.size >= 2 %}
+              {% assign start_display = start_date_trimmed | append: "-01" | date: "%b %Y" %}
+            {% else %}
+              {% assign start_display = start_parts[0] %}
+            {% endif %}
+
+            {% if end_date_trimmed == '' or end_date_trimmed == nil %}
+              {% assign end_display = 'Present' %}
+            {% elsif end_date_trimmed == 'present' or end_date_trimmed == 'Present' %}
+              {% assign end_display = 'Present' %}
+            {% else %}
+              {% assign end_parts = end_date_trimmed | split: '-' %}
+              {% if end_parts.size >= 2 %}
+                {% assign end_display = end_date_trimmed | append: "-01" | date: "%b %Y" %}
+              {% else %}
+                {% assign end_display = end_parts[0] %}
+              {% endif %}
+            {% endif %}
+
+            {% assign date = start_display | append: ' – ' | append: end_display %}
           {% else %}
             {% assign date = null %}
           {% endif %}
@@ -49,20 +69,30 @@
             {% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}
           {% endcapture %}
 
-          {% if entry.url %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">
-              <a href="{{ entry.url }}">{{ study_type }}</a>
+          {% capture institution %}
+            {% if entry.institution %}{{ entry.institution }}{% endif %}
+          {% endcapture %}
+
+          {% capture area %}
+            {% if entry.area %}{{ entry.area }}{% endif %}
+          {% endcapture %}
+
+          {% if institution != '' %}
+            <h6 class="title font-weight-bold">
+              {% if entry.url %}
+                <a href="{{ entry.url }}" target="_blank" rel="noopener noreferrer">{{ institution }}</a>
+              {% else %}
+                {{ institution }}
+              {% endif %}
             </h6>
-          {% elsif study_type != '' %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ study_type }}</h6>
           {% endif %}
 
-          {% if entry.institution %}
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">{{ entry.institution }}</h6>
-          {% endif %}
-
-          {% if entry.area %}
-            <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ entry.area }}</h6>
+          {% if study_type != '' or area != '' %}
+            <div class="cv-edu-sub">
+              {% if study_type != '' %}{{ study_type }}{% endif %}
+              {% if study_type != '' and area != '' %} · {% endif %}
+              {% if area != '' %}{{ area }}{% endif %}
+            </div>
           {% endif %}
 
           {% if entry.courses or entry.highlights %}

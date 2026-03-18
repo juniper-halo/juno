@@ -93,24 +93,35 @@
 \resumeSubHeadingListStart
   \resumeSubheading
     {University of Illinois at Urbana-Champaign (UIUC)}{Urbana, IL}
-    {B.S. in Computer Science \quad \textit{GPA: 3.70/4.00}}{Expected May 2028}
+    {B.S. in Computer Science, GPA: 3.70/4.00}{Expected May 2028}
     \resumeItemListStart
       \resumeItem{Honors}{James Scholar (2024--Present); Dean's List (Fall 2024)}
-        \resumeItem{Coursework}{Data Structures; Linear Algebra; Computer Architecture}
-        \resumeItem{In Progress}{Probability \& Statistics; Systems Programming; Database Systems; Computer System Organization}
+        \resumeItem{Completed Coursework}{Data Structures; Linear Algebra; Computer Architecture}
+        \resumeItem{In-Progress Coursework}{Probability \& Statistics; Systems Programming; Database Systems; Computer System Organization}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
 \resumeSubHeadingListStart
-  \resumeSubheading
+    \resumeSubheading
+      {Siebel School of Computing and Data Science}{Urbana, IL}
+      {Research Assistant, Shepherd Research Lab, Prof. Nishil Talati}{Mar 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Currently working}{Developing methods to improve context coherence and compute on masked/discrete diffusion-based language models.}
+        \resumeItem{Quantifying the efficiency of caching-based diffusion approaches}{Designed and implemented a reproducible ablation pipeline for a training-free diffusion-based rendering, benchmarking MVSplat against four SEVA variants with Hydra-configured experiment orchestration, CLIP-guided schedule modulation, per-scene/mode artifact isolation, quality metrics (PSNR, SSIM, LPIPS, MUSIQ) to quantify the diffusion work under different conditions.}
+      \resumeItemListEnd
+
+    \resumeSubheading
     {Siebel School of Computing and Data Science}{Urbana, IL}
     {Research Assistant,
-    \href{https://scribear.illinois.edu/v/index.html}{\underline{ScribeAR}}}{Feb 2026 -- Present}
+    \href{https://scribear.illinois.edu/v/index.html}{\underline{ScribeAR}}, Prof. Lawrence Angrave}{Feb 2026 -- Present}
     \resumeItemListStart
-        \resumeItem{Currently working}{Designing and implementing a speaker-aware transcription architecture to integrate with a server-side ML diarization service over WebSockets, enabling real-time speaker-change detection, shared typed event contracts, and live frontend speaker state updates.}
-        \resumeItem{System}{Implemented and integrated a new StreamText transcription provider end-to-end across frontend state management, provider runtime logic, configuration UI, persistence migration, and provider registry wiring in a TypeScript monorepo architecture with a React/Vite + Redux web client, a Fastify-based backend, shared schema/library packages, and PostgreSQL infrastructure.}
+        \resumeItem{Currently working (1)}{Developing a general purpose Redux-state migrator to support the addition of new UI components without adding customized migrations.}
+        
+        \resumeItem{Currently working (2)}{Designing and implementing a speaker-aware transcription architecture to integrate with a server-side ML diarization service over WebSockets, enabling real-time speaker-change detection, shared typed event contracts, and live frontend speaker state updates.}
+        
+        \resumeItem{Transcription provider integration}{Implemented and integrated a new StreamText transcription provider end-to-end across frontend state management, provider runtime logic, configuration UI, persistence migration, and provider registry wiring in a TypeScript monorepo architecture with a React/Vite + Redux web client, a Fastify-based backend, shared schema/library packages, and PostgreSQL infrastructure.}
     \resumeItemListEnd
 
     \resumeSubheading
@@ -136,7 +147,7 @@
 \resumeSubHeadingListStart
 
 \resumeSubheading
-  {ASL Transcription Service (CLIP + Django REST)}{UIUC}
+  {American Sign Language Transcription Service}{UIUC}
   {Course Project \quad \href{https://github.com/juniper-halo/TranSlaDoorss}{\underline{Repo}} \;|\;
    \href{https://juniper-halo.github.io/ASL-Classification-via-Contrastive-Learning/}{\underline{Project Page}}}{Aug 2025 -- Jan 2026}
 \resumeItemListStart
