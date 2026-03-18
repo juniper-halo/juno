@@ -1,12 +1,8 @@
 cv:
   name: Madhav Tripathi
-  label: Undergraduate CS student
   email: madhavt2@illinois.edu
   location: Urbana-Champaign, IL
   website: https://juniper-halo.github.io/juno/
-  summary: >
-    Computer Science undergraduate at the University of Illinois Urbana-Champaign, interested in
-    foundational machine learning, computer vision, and multimodal representation learning.
 
   sections:
     Education:
