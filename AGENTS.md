@@ -16,7 +16,7 @@ This repository is now a **single-page academic portfolio** built on a stripped-
 - **Assets**:
   - `assets/img/profile.svg` – avatar used on the about page.
   - `assets/img/prof_pic.jpg`, `prof_pic_color.png`, `20231110_184139_Original.jpeg` – user photos only.
-  - `assets/pdf/resume_ml_updated.pdf` – user’s CV; linked from `socials.yml`.
+  - `assets/pdf/resume_juno_latest.pdf` – user’s CV; linked from `socials.yml`.
   - No demo images, PDFs, or JSON resumes remain.
 
 ## 2. Tech stack (current scope)
@@ -108,7 +108,7 @@ From then on, **every push to `main`** should redeploy the portfolio.
 - `_projects/` – empty; intended for your own project markdown files.
 - `assets/`:
   - `img/` – only your photos + `profile.svg`.
-  - `pdf/` – only your CV (`resume_ml_updated.pdf`).
+  - `pdf/` – only your CV (`resume_juno_latest.pdf`).
   - `css/`, `js/` – shared theme assets; keep as-is.
 - `.github/`:
   - `workflows/` – deployment, accessibility checks, etc. Keep unless explicitly simplifying CI.
