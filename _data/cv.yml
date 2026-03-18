@@ -93,17 +93,17 @@ cv:
 
     Skills:
       - name: Languages
-        level: 
+        level:
         keywords: C++, C, Java, Python, HTML
 
       - name: Engineering Tools
-        level: 
+        level:
         keywords: Git, GitHub, Linux/CLI, Conda, CI workflows, Docker
 
       - name: Data & Vision
-        level: 
+        level:
         keywords: OpenCV, NumPy, Pandas
 
       - name: Machine Learning
-        level: 
+        level:
         keywords: PyTorch, Hugging Face, scikit-learn

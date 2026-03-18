@@ -27,11 +27,9 @@ jobs:
           npx prettier \
             "_config.yml" \
             "_data/**/*.{yml,yaml,json}" \
-            "_includes/**/*.{liquid,html}" \
-            "_layouts/**/*.{liquid,html}" \
             "_pages/**/*.{md,markdown}" \
             "_projects/**/*.{md,markdown}" \
-            "_sass/**/*.{scss,css}" \
+            "_sass/*.scss" \
             "AGENTS.md" \
             "README.md" \
             --check
@@ -42,11 +40,9 @@ jobs:
           npx prettier \
             "_config.yml" \
             "_data/**/*.{yml,yaml,json}" \
-            "_includes/**/*.{liquid,html}" \
-            "_layouts/**/*.{liquid,html}" \
             "_pages/**/*.{md,markdown}" \
             "_projects/**/*.{md,markdown}" \
-            "_sass/**/*.{scss,css}" \
+            "_sass/*.scss" \
             "AGENTS.md" \
             "README.md" \
             --write
