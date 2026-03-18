@@ -1,12 +1,12 @@
 cv:
   name: Madhav Tripathi
-  label: Undergraduate Researcher, Computer Science
+  label: Undergraduate CS student
   email: madhavt2@illinois.edu
   location: Urbana-Champaign, IL
   website: https://juniper-halo.github.io/juno/
   summary: >
-    Computer Science undergraduate at the University of Illinois Urbana-Champaign
-    focused on foundational machine learning, computer vision, and multimodal representation learning.
+    Computer Science undergraduate at the University of Illinois Urbana-Champaign, interested in
+    foundational machine learning, computer vision, and multimodal representation learning.
 
   sections:
     Education:
@@ -26,11 +26,9 @@ cv:
         position: Research Assistant, Shepherd Research Lab
         location: Urbana, IL
         start_date: 2026-03
-        end_date: present
         summary: >
           Research assistant in Shepherd Lab, developing methods to improve context coherence and compute on masked/discrete diffusion-based language models.
         highlights:
-          - Currently working: developing methods to improve context coherence and compute on masked/discrete diffusion-based language models.
           - Designed and implemented a reproducible ablation pipeline for a training-free diffusion-based rendering, benchmarking MVSplat against four SEVA variants with Hydra-configured experiment orchestration and CLIP-guided schedule modulation.
           - Isolated per-scene and per-mode artifacts and used metrics such as PSNR, SSIM, LPIPS, and MUSIQ to quantify diffusion work and quality under different conditions.
 
@@ -38,7 +36,6 @@ cv:
         position: Research Assistant, ScribeAR
         location: Urbana, IL
         start_date: 2026-02
-        end_date: present
         url: https://scribear.illinois.edu/v/index.html
         summary: >
           Research assistant on ScribeAR, building accessible real-time captioning and transcription systems.
@@ -51,7 +48,6 @@ cv:
         position: Course Assistant, Introduction to Computer Science II
         location: Urbana, IL
         start_date: 2025-08
-        end_date: present
         summary: >
           Course assistant for CS II, supporting students in C++ programming and core data structures.
         highlights:
@@ -63,7 +59,6 @@ cv:
         position: Course Assistant, Introduction to Computer Science I
         location: Urbana, IL
         start_date: 2025-01
-        end_date: present
         summary: >
           Course assistant for CS I, helping students build strong foundations in Java and introductory CS.
         highlights:
@@ -98,17 +93,17 @@ cv:
 
     Skills:
       - name: Languages
-        level:
+        level: 
         keywords: C++, C, Java, Python, HTML
 
       - name: Engineering Tools
-        level:
+        level: 
         keywords: Git, GitHub, Linux/CLI, Conda, CI workflows, Docker
 
       - name: Data & Vision
-        level:
+        level: 
         keywords: OpenCV, NumPy, Pandas
 
       - name: Machine Learning
-        level:
+        level: 
         keywords: PyTorch, Hugging Face, scikit-learn
